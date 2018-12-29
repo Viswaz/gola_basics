@@ -7,22 +7,36 @@ import (
 )
 
 func main() {
+
+	fmt.Println(echoOne(os.Args))
+
+	fmt.Println(echoTwo(os.Args))
+
+	fmt.Println(echoThree(os.Args))
+
+}
+
+func echoOne(input []string) string {
 	//1
 	var s, sep string
-	for i := 1; i < len(os.Args); i++ {
-		s += sep + os.Args[i]
+	for i := 1; i < len(input); i++ {
+		s += sep + input[i]
 		sep = " "
 	}
-	fmt.Println(s)
+	return s
+}
 
+func echoTwo(input []string) string {
 	//2
 	var q, res string
-	for _, arg := range os.Args[1:] {
+	for _, arg := range input[1:] {
 		q += res + arg
 		res = " "
 	}
-	fmt.Println(q)
+	return q
+}
 
+func echoThree(input []string) string {
 	//3
-	fmt.Println(strings.Join(os.Args[1:], " "))
+	return strings.Join(input[1:], " ")
 }
